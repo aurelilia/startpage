@@ -1,23 +1,86 @@
 body {
-  background-color: #FFF;
-  font-family: "Titillium Web", sans-serif;
-  color: #333;
+  background-color: #222;
+  font-family: 'Titillium Web', sans-serif;
+  color: #EEE;
+}
+
+a {
+  color: #66C;
+}
+
+a span {
+  display: none;
 }
 
 .header {
   font-size: 30pt;
   text-align: center;
   padding: 0;
+  font-weight: 400;
 }
 
 .sub-header {
   font-size: 15pt;
   text-align: center;
   padding-bottom: 50px;
+  font-weight: 400;
+}
+
+h3 {
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+
+ul {
+  padding: 0 0 50px 20px;
+  margin: 0;
 }
 
 li {
   font-size: 12pt;
-  padding: 10px 0px;
+  padding: 10px 0;
   list-style: none;
 }
+
+.modeswitch, .contact {
+  color: #AAA;
+  bottom: 5px;
+  position: fixed;
+}
+
+.modeswitch {
+  left: 5px;
+}
+
+.contact {
+  right: 5px;
+}
+
+.contact p {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links a {
+  padding: 0 5px;
+}
+
+.discord:hover .dc-child {
+  display: inline;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #FFF;
+    color: #333 !important;
+  }
+
+  a {
+    color: #229 !important;
+  }
+
+  .modeswitch, .contact {
+    color: #555 !important;
+  }
+}
+/*# sourceMappingURL=index.css.map */

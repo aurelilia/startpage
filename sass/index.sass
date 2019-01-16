@@ -1,21 +1,71 @@
 @import 'colors'
 
 body
-    background-color: $background
+    background-color: $bg-dark
     font-family: 'Titillium Web', sans-serif;
-    color: $text-color
+    color: $text-dark
+
+a
+    color: $link-dark
+
+    span
+        display: none
 
 .header
     font-size: 30pt
     text-align: center
     padding: 0
+    font-weight: 400
 
 .sub-header
     font-size: 15pt
     text-align: center
     padding-bottom: 50px
+    font-weight: 400
+
+h3
+    padding: 0 0 0 20px
+    margin: 0
+
+ul
+    padding: 0 0 50px 20px
+    margin: 0
 
 li
     font-size: 12pt
-    padding: 10px 0px
+    padding: 10px 0
     list-style: none
+
+.modeswitch, .contact
+    color: $footer-dark
+    bottom: 5px
+    position: fixed
+
+
+.modeswitch
+    left: 5px
+
+.contact
+    right: 5px
+
+    p
+        padding: 0
+        margin: 0
+
+.footer-links
+    a
+        padding: 0 5px
+
+.discord:hover .dc-child
+    display: inline
+
+@media (prefers-color-scheme: light)
+    body
+        background-color: $bg-light
+        color: $text-light
+
+    a
+        color: $link-light
+
+    .modeswitch, .contact
+        color: $footer-light
