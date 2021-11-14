@@ -15,6 +15,7 @@ canvas {
 
 a {
   color: #66C;
+  pointer-events: auto;
 }
 
 a span {
