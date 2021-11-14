@@ -4,6 +4,15 @@ body {
   color: #EEE;
 }
 
+canvas {
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
 a {
   color: #66C;
 }
@@ -42,7 +51,7 @@ li {
   list-style: none;
 }
 
-.modeswitch, .contact {
+.modeswitch, .contact, .note {
   color: #AAA;
   bottom: 5px;
   position: fixed;
@@ -63,24 +72,41 @@ li {
 
 .footer-links a {
   padding: 0 5px;
+  pointer-events: auto;
 }
 
 .discord:hover .dc-child {
   display: inline;
 }
 
+.note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media (prefers-color-scheme: light) {
   body {
     background-color: #FFF;
-    color: #333 !important;
+    color: #333;
   }
-
   a {
-    color: #229 !important;
+    color: #229;
   }
-
   .modeswitch, .contact {
-    color: #555 !important;
+    color: #555;
   }
+}
+
+header, main, footer, h1, h2, h3, main > ul {
+  pointer-events: none;
 }
 /*# sourceMappingURL=index.css.map */
