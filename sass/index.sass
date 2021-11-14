@@ -44,14 +44,10 @@ li
     padding: 10px 0
     list-style: none
 
-.modeswitch, .contact, .note
+.contact, .note
     color: $footer-dark
     bottom: 5px
     position: fixed
-
-
-.modeswitch
-    left: 5px
 
 .contact
     right: 5px
@@ -74,17 +70,6 @@ li
     width: 100%
     align-items: center
 
-
-@media (prefers-color-scheme: light)
-    body
-        background-color: $bg-light
-        color: $text-light
-
-    a
-        color: $link-light
-
-    .modeswitch, .contact
-        color: $footer-light
-
 header,main,footer,h1,h2,h3,main > ul
     pointer-events: none
+    user-select: none

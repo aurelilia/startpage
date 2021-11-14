@@ -51,14 +51,10 @@ li {
   list-style: none;
 }
 
-.modeswitch, .contact, .note {
+.contact, .note {
   color: #AAA;
   bottom: 5px;
   position: fixed;
-}
-
-.modeswitch {
-  left: 5px;
 }
 
 .contact {
@@ -93,20 +89,11 @@ li {
           align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #FFF;
-    color: #333;
-  }
-  a {
-    color: #229;
-  }
-  .modeswitch, .contact {
-    color: #555;
-  }
-}
-
 header, main, footer, h1, h2, h3, main > ul {
   pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 /*# sourceMappingURL=index.css.map */
