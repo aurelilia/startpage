@@ -33,11 +33,11 @@ let config = {
     SIM_RESOLUTION: 128,
     DYE_RESOLUTION: 1024,
     CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 0.4,
-    VELOCITY_DISSIPATION: 0.1,
+    DENSITY_DISSIPATION: 0.25,
+    VELOCITY_DISSIPATION: 0.2,
     PRESSURE: 0.8,
     PRESSURE_ITERATIONS: 20,
-    CURL: 2,
+    CURL: 5,
     SPLAT_RADIUS: 0.3,
     SPLAT_FORCE: 6000,
     SHADING: true,
@@ -1404,6 +1404,25 @@ function multipleSplats(amount) {
     }
 }
 
+function strongSplat(strengh) {
+    let x = Math.random();
+    let y = Math.random();
+    const xA = Math.random() * 0.2 * (x < 0.5 ? 1 : -1);
+    const yA = (0.2 - Math.abs(xA)) * (y < 0.5 ? 1 : -1);
+    const dx = 6000 * xA;
+    const dy = 6000 * yA;
+
+    for (let i = 0; i < strengh; i++) {
+        const color = generateColor();
+        color.r *= 3.0;
+        color.g *= 3.0;
+        color.b *= 3.0;
+        splat(x, y, dx, dy, color);
+        x += xA;
+        y += yA;
+    }
+}
+
 function splat(x, y, dx, dy, color) {
     splatProgram.bind();
     gl.uniform1i(splatProgram.uniforms.uTarget, velocity.read.attach(0));
@@ -1609,3 +1628,5 @@ function hashCode(s) {
     }
     return hash;
 };
+
+setInterval(() => strongSplat(4), 1500);
