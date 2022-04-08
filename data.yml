@@ -1,0 +1,32 @@
+services:
+  - name: Gitea
+    url: git
+    desc: A Gitea instance hosting my projects
+  - name: Element
+    url: element
+    desc: An instance of the Element IM app
+  - name: Matrix
+    url: matrix
+    desc: My matrix homeserver
+  - name: Bibliogram
+    url: bibliogram
+    desc: An instance of the Bibliogram Instagram client
+  - name: Gamelin
+    url: gamelin
+    desc: My GameBoy Color emulator, browser version
+  - name: gelix
+    url: gelix
+    desc: A high-level modern programming language. Never finished.
+
+ignored_langs:
+  - License
+  - Properties File
+  - gitignore
+  - SVG
+  - XML
+  - Plain Text
+  - Batch
+is_shell:
+  - Zsh
+  - BASH
+  

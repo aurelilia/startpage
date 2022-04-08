@@ -1,3 +1,4 @@
-# Startpage
+# start page
+introspection
 
-A simple start page, showing all projects hosted on angm.xyz.
+to build: run `build.py` and compile the SASS in `sass/`.

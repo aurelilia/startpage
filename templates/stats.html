@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block css %}stats{% endblock %}
+
+{% block main %}
+
+<section>
+    <h4>
+        in total, i have written {{ data.total_sloc }} lines of code
+        (across all of my public repositories).
+    </h4>
+    <p>this is that total split up by language:</p>
+
+    {% for lang in data.sloc %}
+    <span>{{ lang }} - {{ data.sloc[lang] }} ({{ data.sloc_pct[lang] }}%)</span>
+    {% endfor %}
+
+    <p class="dim">(according to <a href="https://github.com/boyter/scc">scc</a>)</p>
+</section>
+{% endblock %}

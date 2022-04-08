@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta property="og:description" content="a random internet person's page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/sass/{% block css %}{% endblock %}.css">
+    <title>leela's introspection</title>
+</head>
+
+<body>
+    <header>
+        <a href="/">home</a> - 
+        <a href="/projects.html">projects</a> - 
+        <a href="/stats.html">stats</a> - 
+        <a href="/services.html">services</a>    
+    </header>
+
+    <main>{% block main %}{% endblock %}</main>
+
+    <footer>made with &lt;3</footer>
+
+    <noscript><img src="https://shynet.angm.xyz/ingress/116dff44-c14f-43f4-a2df-43c42e837d36/pixel.gif"></noscript>
+    <script defer src="https://shynet.angm.xyz/ingress/116dff44-c14f-43f4-a2df-43c42e837d36/script.js"></script> 
+</body>
+
+</html>

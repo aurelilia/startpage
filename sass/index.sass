@@ -1,76 +1,10 @@
 @import 'colors'
+@import 'base'
 
-body
-    background-color: $bg-dark
-    font-family: 'Titillium Web', sans-serif
-    color: $text-dark
-
-canvas
-    position: fixed
-    z-index: -10
-    top: 0
-    left: 0
-    height: 100%
-    width: 100%
-
-a
-    color: $link-dark
-    pointer-events: auto
-
+main
     span
-        display: none
-
-.header
-    font-size: 30pt
-    text-align: center
-    padding: 0
-    font-weight: 400
-
-.sub-header
-    font-size: 15pt
-    text-align: center
-    padding-bottom: 50px
-    font-weight: 400
-
-h3
-    padding: 0 0 0 20px
-    margin: 0
-
-ul
-    padding: 0 0 50px 20px
-    margin: 0
-
-li
-    font-size: 12pt
-    padding: 10px 0
-    list-style: none
-
-.contact, .note
-    color: $footer-dark
-    bottom: 5px
-    position: fixed
-
-.contact
-    right: 5px
-
-    p
-        padding: 0
-        margin: 0
-
-.footer-links
-    a
-        padding: 0 5px
-        pointer-events: auto
-
-.discord:hover .dc-child
-    display: inline
-
-.note
-    display: flex
-    flex-direction: column
-    width: 100%
-    align-items: center
-
-header,main,footer,h1,h2,h3,main > ul
-    pointer-events: none
-    user-select: none
+        display: block
+        padding: 3px
+    
+    span:first-child, span:last-child
+        padding: 15px 0
