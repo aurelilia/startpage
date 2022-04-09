@@ -28,3 +28,7 @@ steps:
 
     - rm -rf repos/
     - scp -r * $SSH_PATH
+
+trigger:
+  branch:
+  - main
