@@ -31,4 +31,10 @@ steps:
 
 trigger:
   branch:
-  - main
+    - main
+  event:
+    include:
+      - push
+      - cron
+      - custom
+
