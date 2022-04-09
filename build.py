@@ -8,6 +8,8 @@ import jinja2
 import yaml
 import urllib.request, json
 import subprocess
+import sass
+import time
 
 # Load input data & jinja
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates'))
@@ -21,12 +23,17 @@ with urllib.request.urlopen('https://git.angm.xyz/api/v1/repos/search?uid=8') as
     data['git'] += json.loads(url.read().decode())['data']
 
 # Populate repo data
+try:
+    os.mkdir("repos")
+except:
+    pass
 data['sloc'] = {}
 data['sloc_pct'] = {}
 data['total_sloc'] = 0
 for repo in data['git']:
     with subprocess.Popen(["git", "clone", repo["clone_url"]], cwd="repos") as proc:
         pass
+    time.sleep(0.5) # Give some time, otherwise scc gets weird
     with subprocess.Popen(["scc", "-f", "json"], cwd="repos/" + repo["name"], stdout=subprocess.PIPE) as proc:
         lang_list = json.loads(proc.stdout.read().decode("utf-8"))
     with subprocess.Popen(["du", "-sh"], cwd="repos/" + repo["name"], stdout=subprocess.PIPE) as proc:
@@ -76,3 +83,5 @@ write(tem('index').render(data=data), 'index')
 write(tem('projects').render(data=data), 'projects')
 write(tem('services').render(data=data), 'services')
 write(tem('stats').render(data=data), 'stats')
+
+sass.compile(dirname=('sass', 'css'), output_style='compressed')
