@@ -24,6 +24,7 @@ ignored_langs:
   - gitignore
   - SVG
   - XML
+  - JSON
   - Plain Text
   - Batch
 is_shell:
