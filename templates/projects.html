@@ -4,12 +4,12 @@
 {% block main %}
 {% for repo in data.git %}
 <section>
-    <h3><a href="{{ repo.html_url }}">{{ repo.name.lower() }}</a></h3>
+    <h3><a href="{{ repo.html_url }}">{{ repo.full_name.lower() }}</a></h3>
     <p>{{ repo.description.lower() }}</p>
     <p class="dim">{{ repo.updated_at[0:10] }} - {{ repo.total_src }} sloc - {{ repo.size }}</p>
     <p class="dim">
         {% for lang in repo.langs %}
-        <span class="lang">{{ repo.langs[lang] }}% {{ lang.lower() }}</span>
+        <span class="lang colour-{{ lang }}">{{ repo.langs[lang] }}% {{ lang.lower() }}</span>
         {% if not loop.last %}-{% endif %}
         {% endfor %}
     </p>

@@ -11,7 +11,7 @@
     <p>this is that total split up by language:</p>
 
     {% for lang in data.sloc %}
-    <span>{{ lang }} - {{ data.sloc[lang] }} ({{ data.sloc_pct[lang] }}%)</span>
+    <span class="colour-{{ lang }}">{{ lang }} - {{ data.sloc[lang] }} ({{ data.sloc_pct[lang] }}%)</span>
     {% endfor %}
 
     <p class="dim">(according to <a href="https://github.com/boyter/scc">scc</a>)</p>

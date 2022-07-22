@@ -8,12 +8,12 @@ services:
   - name: Matrix
     url: matrix
     desc: My matrix homeserver
-  - name: Bibliogram
-    url: bibliogram
-    desc: An instance of the Bibliogram Instagram client
+  - name: gamegirl
+    url: gamegirl
+    desc: My multi-system emulator (GameBoy/GB Colour/GB Advance/NDS)
   - name: Gamelin
     url: gamelin
-    desc: My GameBoy Color emulator, browser version
+    desc: My (outdated) GameBoy Color emulator, browser version
   - name: gelix
     url: gelix
     desc: A high-level modern programming language. Never finished.
@@ -27,6 +27,7 @@ ignored_langs:
   - JSON
   - Plain Text
   - Batch
+  - CSS
 is_shell:
   - Zsh
   - BASH

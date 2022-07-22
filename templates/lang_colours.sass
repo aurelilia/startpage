@@ -1,0 +1,4 @@
+{% for lang in data.sloc %}
+.colour-{{ lang }}
+    color: desaturate(lighten({{ data['colours'][lang] }}, 5%), 25)
+{% endfor %}

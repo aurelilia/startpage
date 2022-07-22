@@ -15,10 +15,15 @@ import time
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('./templates'))
 with open('data.yml') as f:
     data = yaml.safe_load(f)
+with open('colours.json') as f:
+    data['colours'] = json.load(f)
 
 # Get repositories
 with urllib.request.urlopen('https://git.angm.xyz/api/v1/repos/search?uid=1') as url:
-    data['git'] = json.loads(url.read().decode())['data']
+    repos = json.loads(url.read().decode())['data']
+    for repo in repos:
+        repo['full_name'] = repo['name']
+    data['git'] = repos
 with urllib.request.urlopen('https://git.angm.xyz/api/v1/repos/search?uid=8') as url:
     data['git'] += json.loads(url.read().decode())['data']
 
@@ -72,16 +77,17 @@ data['sloc'] = dict(sorted(data['sloc'].items(), reverse=True, key=lambda l: l[1
 
 # Get template with given name
 def tem(name):
-    return env.get_template(f'{name}.html')
+    return env.get_template(name)
 
 # Write a rendered template to the given path.
 def write(dat, location):
-    with open(f'{location}.html', 'w') as f:
+    with open(location, 'w') as f:
         f.write(dat)
 
-write(tem('index').render(data=data), 'index')
-write(tem('projects').render(data=data), 'projects')
-write(tem('services').render(data=data), 'services')
-write(tem('stats').render(data=data), 'stats')
+write(tem('lang_colours.sass').render(data=data), 'sass/_lang_colours.sass')
+write(tem('index.html').render(data=data), 'index.html')
+write(tem('projects.html').render(data=data), 'projects.html')
+write(tem('services.html').render(data=data), 'services.html')
+write(tem('stats.html').render(data=data), 'stats.html')
 
 sass.compile(dirname=('sass', 'css'), output_style='compressed')
