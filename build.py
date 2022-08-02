@@ -18,6 +18,11 @@ with open('data.yml') as f:
 with open('colours.json') as f:
     data['colours'] = json.load(f)
 
+# Construct scc command
+cmd = ["scc", "-f", "json"]
+for ignore in data["ignored_files"]:
+    cmd += ["--exclude-dir", ignore]
+
 # Get repositories
 with urllib.request.urlopen('https://git.angm.xyz/api/v1/repos/search?uid=1') as url:
     repos = json.loads(url.read().decode())['data']
@@ -39,7 +44,7 @@ for repo in data['git']:
     with subprocess.Popen(["git", "clone", repo["clone_url"]], cwd="repos") as proc:
         pass
     time.sleep(0.5) # Give some time, otherwise scc gets weird
-    with subprocess.Popen(["scc", "-f", "json"], cwd="repos/" + repo["name"], stdout=subprocess.PIPE) as proc:
+    with subprocess.Popen(cmd, cwd="repos/" + repo["name"], stdout=subprocess.PIPE) as proc:
         lang_list = json.loads(proc.stdout.read().decode("utf-8"))
     with subprocess.Popen(["du", "-sh"], cwd="repos/" + repo["name"], stdout=subprocess.PIPE) as proc:
         repo['size'] = proc.stdout.read().decode("utf-8").split('\t', 1)[0]
@@ -50,8 +55,8 @@ for repo in data['git']:
         lang = dic["Name"]
         if lang in data['ignored_langs']:
             continue
-        if lang in data['is_shell']:
-            lang = "Shell"
+        if lang in data['renames']:
+            lang = data['renames'][lang]
 
         if lang not in langs:
             langs[lang] = 0

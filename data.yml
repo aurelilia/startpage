@@ -20,7 +20,6 @@ services:
 
 ignored_langs:
   - License
-  - Properties File
   - gitignore
   - SVG
   - XML
@@ -28,7 +27,22 @@ ignored_langs:
   - Plain Text
   - Batch
   - CSS
-is_shell:
-  - Zsh
-  - BASH
-  
+
+renames:
+  "Zsh": "Shell"
+  "BASH": "Shell"
+  "Dockerfile": "Shell"
+  "C Header": "C"
+  "Freemarker Template": "Freemarker"
+  "TypeScript Typings": "TypeScript"
+  "Properties File": "Java Properties"
+
+ignored_files:
+  # Gradle nonsense
+  - "gradle"
+  - "gradlew"
+  - "gradlew.bat"
+  - "gradle.properties"
+
+  # Cramolith tool-generated maps, which use YAML
+  - "assets/map"
