@@ -24,12 +24,12 @@ for ignore in data["ignored_files"]:
     cmd += ["--exclude-dir", ignore]
 
 # Get repositories
-with urllib.request.urlopen('https://git.angm.xyz/api/v1/repos/search?uid=1') as url:
+with urllib.request.urlopen('https://git.elia.garden/api/v1/repos/search?uid=1') as url:
     repos = json.loads(url.read().decode())['data']
     for repo in repos:
         repo['full_name'] = repo['name']
     data['git'] = repos
-with urllib.request.urlopen('https://git.angm.xyz/api/v1/repos/search?uid=8') as url:
+with urllib.request.urlopen('https://git.elia.garden/api/v1/repos/search?uid=8') as url:
     data['git'] += json.loads(url.read().decode())['data']
 
 # Populate repo data
