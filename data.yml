@@ -46,3 +46,16 @@ ignored_files:
 
   # Cramolith tool-generated maps, which use YAML
   - "assets/map"
+
+# Additional private projects that are not public
+git:
+- name: your-friendly-neighborhood-crab
+  full_name: your-friendly-neighborhood-crab
+  description: Beginner Rust book. Unfinished, not published.
+  updated_at: "2022-10-18"
+  clone_url: jade@jade:/media/git/your-friendly-neighborhood-crab
+- name: ansible-server
+  full_name: ansible-server
+  description: My server's ansible playbook. Not public.
+  updated_at: "2022-05-01"
+  clone_url: jade@jade:/media/git/other/ansible/ansible-server

@@ -28,7 +28,7 @@ with urllib.request.urlopen('https://git.elia.garden/api/v1/repos/search?uid=1')
     repos = json.loads(url.read().decode())['data']
     for repo in repos:
         repo['full_name'] = repo['name']
-    data['git'] = repos
+    data['git'] += repos
 with urllib.request.urlopen('https://git.elia.garden/api/v1/repos/search?uid=8') as url:
     data['git'] += json.loads(url.read().decode())['data']
 
@@ -41,7 +41,7 @@ data['sloc'] = {}
 data['sloc_pct'] = {}
 data['total_sloc'] = 0
 for repo in data['git']:
-    with subprocess.Popen(["git", "clone", repo["clone_url"]], cwd="repos") as proc:
+    with subprocess.Popen(["git", "clone", "-q", repo["clone_url"]], cwd="repos") as proc:
         pass
     time.sleep(0.5) # Give some time, otherwise scc gets weird
     with subprocess.Popen(cmd, cwd="repos/" + repo["name"], stdout=subprocess.PIPE) as proc:
