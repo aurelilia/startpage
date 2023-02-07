@@ -92,7 +92,7 @@ def write(dat, location):
 write(tem('lang_colours.sass').render(data=data), 'sass/_lang_colours.sass')
 write(tem('index.html').render(data=data), 'index.html')
 write(tem('projects.html').render(data=data), 'projects.html')
-write(tem('services.html').render(data=data), 'services.html')
+write(tem('hobby.html').render(data=data), 'hobby.html')
 write(tem('stats.html').render(data=data), 'stats.html')
 
 sass.compile(dirname=('sass', 'css'), output_style='compressed')
