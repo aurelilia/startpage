@@ -7,16 +7,13 @@ steps:
   environment:
     SSH_KEY:
       from_secret: SSH_KEY
-    SSH_KNOWN_HOSTS:
-      from_secret: SSH_KNOWN_HOSTS
+    SSH_PORT:
+      from_secret: SSH_PORT
     SSH_PATH:
       from_secret: SSH_PATH
   commands:
     - eval $(ssh-agent -s)
     - echo "$SSH_KEY" | ssh-add -
-    - mkdir ~/.ssh/
-    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
 
     - wget https://github.com/boyter/scc/releases/download/v3.0.0/scc-3.0.0-x86_64-unknown-linux.zip
     - unzip scc-3.0.0-x86_64-unknown-linux.zip
@@ -27,7 +24,7 @@ steps:
     - python build.py
 
     - rm -rf repos/
-    - scp -r * $SSH_PATH
+    - scp -o "StrictHostKeyChecking no" -P $SSH_PORT -r * $SSH_PATH
 
 trigger:
   branch:
